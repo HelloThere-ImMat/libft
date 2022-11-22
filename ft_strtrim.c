@@ -6,11 +6,22 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:38:38 by mdorr             #+#    #+#             */
-/*   Updated: 2022/11/21 16:16:42 by mdorr            ###   ########.fr       */
+/*   Updated: 2022/11/22 12:20:13 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+char	*rtnemptystr(void)
+{
+	char	*str;
+
+	str = (char *)malloc(sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	*str = 0;
+	return (str);
+}
 
 int	charisincharset(char c, char const *set)
 {
@@ -29,33 +40,27 @@ int	charisincharset(char c, char const *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*dest;
 	int		i;
 	int		start;
 	int		len;
 
 	if (!s1 || !set)
-		return (0);
+		return (rtnemptystr());
 	i = 0;
 	while (charisincharset(s1[i], set) == 1 && s1[i])
 		i++;
 	if (s1[i] == 0)
-	{
-		dest = (char *)malloc(sizeof(*s1));
-		dest[i] = 0;
-		return (dest);
-	}
+		return (rtnemptystr());
 	start = i;
-	len = 0;
-	while (charisincharset(s1[i], set) == 0 && s1[i])
-	{
-		len++;
-		i++;
-	}
+	i = ft_strlen(s1) - 1;
+	while (charisincharset(s1[i], set) == 1)
+		i--;
+	len = i - start + 1;
 	return (ft_substr(s1, start, len));
 }
 
 /*
+
 #include <stdio.h>
 
 int main()
@@ -64,7 +69,7 @@ int main()
     char *set;
     char *dest;
 
-    str = "@@@@@@@@Bonjour COMMENT va@@@######@";
+    str = "@@@Bo COMMENT tt@##@";
     set = "@#";
     dest = ft_strtrim(str, set);
     printf("%s\n", dest);

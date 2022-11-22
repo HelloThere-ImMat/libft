@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 13:08:18 by mdorr             #+#    #+#             */
-/*   Updated: 2022/11/17 15:43:47 by mdorr            ###   ########.fr       */
+/*   Updated: 2022/11/22 12:27:17 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,16 +89,19 @@ char	**ft_split(char *str, char c)
 }
 
 /*
-int	main(int ac, char **av)
+
+#include <stdio.h>
+
+int	main()
 {
-	(void)ac;
 	int	i;
 	char **tab;
 
 	i = 0;
-	tab = split(av[1]);
-	while (i < 4)
+	tab = ft_split("coucou comment va je suis mat", ' ');
+	while (i < 6)
 		printf("%s\n", tab[i++]);
 	return (0);
 }
+
 */
