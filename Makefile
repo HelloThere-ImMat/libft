@@ -62,24 +62,20 @@ BONUS	=	ft_lstadd_back.c \
 		ft_lstsize.c \
 
 BONUS_OBJS	= ${BONUS:.c=.o}
-	
-
-HEADERS = includes/
-
 
 CC	= 	gcc
 
 
-CFLAGS	= 	-Wall -Wextra -Werror -I
+CFLAGS	= 	-Wall -Wextra -Werror
 
 
 .c.o:	
 
-		${CC} ${CFLAGS} ${HEADERS} -c $< -o ${<:.c=.o}
+		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 
 ${NAME}:	${OBJS}
-		ar rc ${NAME} ${OBJS}
+		ar rcs ${NAME} ${OBJS}
 
 
 all:	${NAME}
@@ -96,7 +92,7 @@ fclean:	clean
 re:	fclean all
 
 bonus:	${OBJS} ${BONUS_OBJS}
-			ar rc ${NAME} ${OBJS} ${BONUS_OBJS}
+			ar rcs ${NAME} ${OBJS} ${BONUS_OBJS}
 
 
 .PHONY : 	all clean fclean re

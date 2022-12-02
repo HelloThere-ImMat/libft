@@ -15,7 +15,9 @@
 void	*ft_calloc(size_t elementCount, size_t elementSize)
 {
 	void	*tab;
-
+	
+	if (elementSize > 0 && elementCount > SIZE_MAX / elementSize)
+		return (NULL);
 	tab = (void *)malloc(elementCount * elementSize);
 	if (!tab)
 		return (NULL);
