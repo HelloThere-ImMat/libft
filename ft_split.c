@@ -86,7 +86,7 @@ char	**ft_split(char *str, char c)
 		tab[i] = get_word(str, len_word, &j, c);
 		i++;
 	}
-	tab[i] = '\0';
+	tab[i] = NULL;
 	return (tab);
 }
 
