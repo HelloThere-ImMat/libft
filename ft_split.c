@@ -77,6 +77,8 @@ char	**ft_split(char *str, char c)
 	j = 0;
 	count_str = str_count(str, c);
 	tab = malloc(sizeof(char *) * (count_str + 1));
+	if (tab == NULL)
+		return (NULL);
 	while (i < count_str)
 	{
 		len_word = word_len(str, &j, c);
