@@ -89,7 +89,7 @@ char	**ft_split(char *s, char c)
 
 	i = 0;
 	j = 0;
-	if (s == NULL)	
+	if (s == NULL)
 		return (NULL);
 	tab = malloc(sizeof(char *) * (str_count(s, c) + 1));
 	if (tab == NULL)
