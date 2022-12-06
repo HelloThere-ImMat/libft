@@ -20,10 +20,10 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 		return ;
 	if (*lst == NULL)
 	{
-		*alst = new;
+		*lst = new;
 		return ;
 	}
-	tmp = *alst;
+	tmp = *lst;
 	new->next = tmp;
-	*alst = new;
+	*lst = new;
 }
