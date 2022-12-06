@@ -85,27 +85,25 @@ char	**ft_split(char *s, char c)
 	int		i;
 	int		j;
 	int		count_str;
-	int		len_word;
 	char	**tab;
 
 	i = 0;
 	j = 0;
-	//rajouter condition si s null
+	if (s == NULL)
+		return (NULL);
 	count_str = str_count(s, c);
 	tab = malloc(sizeof(char *) * (count_str + 1));
 	if (tab == NULL)
 		return (NULL);
 	while (i < count_str)
 	{
-		len_word = word_len(s, &j, c);
-		j = j - len_word;
-		tab[i] = get_word(s, len_word, &j, c);
-		if (tab[i] == NULL)
+		j = j - word_len(s, &j, c);
+		tab[i++] = get_word(s, word_len(s, &j, c), &j, c);
+		if (tab[i - 1] == NULL)
 		{
-			free_all(&tab, i);
+			free_all(&tab, i - 1);
 			return (NULL);
 		}
-		i++;
 	}
 	tab[i] = NULL;
 	return (tab);
