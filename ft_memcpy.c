@@ -6,25 +6,25 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:42:08 by mdorr             #+#    #+#             */
-/*   Updated: 2022/11/08 14:02:22 by mdorr            ###   ########.fr       */
+/*   Updated: 2022/12/03 13:33:57 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *destination, const void *source, size_t size)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t	i;
 
 	i = 0;
-	if (!destination && !source)
+	if (!dest && !src)
 		return (0);
-	while (i < size)
+	while (i < n)
 	{
-		*(char *)(destination + i) = *(char *)(source + i);
+		*(char *)(dest + i) = *(char *)(src + i);
 		i++;
 	}
-	return (destination);
+	return (dest);
 }
 
 /*
@@ -45,7 +45,7 @@ int main ()
       write(1, &dest[i], 1);
       i++;
    }
-   write(1, "\n", 1);   
+   write(1, "\n", 1);
 }
 
 */

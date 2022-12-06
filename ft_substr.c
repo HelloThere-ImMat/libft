@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:38:44 by mdorr             #+#    #+#             */
-/*   Updated: 2022/11/08 14:21:45 by mdorr            ###   ########.fr       */
+/*   Updated: 2022/12/03 13:59:44 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char			*dest;
 	size_t			i;
 
+	if (s == NULL)
+		return (NULL);
 	if (len >= ft_strlen(s))
 		len = ft_strlen(s) - start;
 	i = 0;
@@ -48,10 +50,10 @@ int main ()
     char *dest;
     int c;
     int d;
-    
+
     c = 4;
     d = 5;
-    str = "coucou comment va ?"; 
+    str = "coucou comment va ?";
     dest = ft_substr(str, c, d);
 
     printf("%s\n", dest);

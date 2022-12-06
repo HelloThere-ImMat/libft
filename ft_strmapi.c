@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:37:07 by mdorr             #+#    #+#             */
-/*   Updated: 2022/11/17 16:28:14 by mdorr            ###   ########.fr       */
+/*   Updated: 2022/12/03 13:53:21 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t			i;
 
 	i = 0;
+	if (s == NULL || f == NULL)
+		return (NULL);
 	tab = ft_strdup(s);
 	if (tab == NULL)
 		return (NULL);

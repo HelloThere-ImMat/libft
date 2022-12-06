@@ -6,17 +6,17 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:36:41 by mdorr             #+#    #+#             */
-/*   Updated: 2022/11/08 14:43:13 by mdorr            ###   ########.fr       */
+/*   Updated: 2022/12/03 13:36:05 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int nb, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
 	long int	nbr;
 
-	nbr = nb;
+	nbr = n;
 	if (nbr < 0)
 	{
 		nbr = -nbr;

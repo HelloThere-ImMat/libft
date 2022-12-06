@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 16:21:27 by mdorr             #+#    #+#             */
-/*   Updated: 2022/11/08 14:01:49 by mdorr            ###   ########.fr       */
+/*   Updated: 2022/12/03 15:07:34 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,19 @@ size_t	ft_strlcat(char *dest, char *src, unsigned int size)
 		i++;
 	return (length + i);
 }
+
+/*
+#include <string.h>
+#include <stdio.h>
+
+int main (void)
+{
+	char *s;
+	char *s2;
+	int	res;
+
+	s = NULL;
+	s2 = "coucou";
+	res = strlcat(s, s2, 2);
+	printf("%d", res);
+}*/

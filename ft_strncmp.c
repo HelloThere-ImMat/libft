@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 12:35:18 by mdorr             #+#    #+#             */
-/*   Updated: 2022/11/22 11:59:45 by mdorr            ###   ########.fr       */
+/*   Updated: 2022/12/03 15:05:43 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,20 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 		return (0);
 	}
 }
+
+/*
+#include <string.h>
+#include <stdio.h>
+
+int main (void)
+{
+	char *s;
+	char *s2;
+	int	res;
+
+	s = NULL;
+	s2 = "coucou";
+	res = strncmp(s, s2, 2);
+	printf("%d", res);
+
+}*/

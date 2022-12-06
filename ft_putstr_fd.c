@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 18:36:50 by mdorr             #+#    #+#             */
-/*   Updated: 2022/11/08 14:42:42 by mdorr            ###   ########.fr       */
+/*   Updated: 2022/12/03 13:35:42 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_putstr_fd(char *s, int fd)
 	int	len;
 
 	i = 0;
+	if (s == NULL)
+		return ;
 	len = ft_strlen(s);
 	while (i < len)
 	{

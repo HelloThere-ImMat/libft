@@ -6,39 +6,52 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 13:08:18 by mdorr             #+#    #+#             */
-/*   Updated: 2022/11/22 12:27:17 by mdorr            ###   ########.fr       */
+/*   Updated: 2022/12/03 13:50:16 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	str_count(char *str, char c)
+void	free_all(char ***tab_ptr, int rows)
+{
+	int	i;
+
+	i = 0;
+	while (i <= rows)
+	{
+		free(*tab_ptr[i]);
+		i++;
+	}
+	free(*tab_ptr);
+}
+
+int	str_count(char *s, char c)
 {
 	int	i;
 	int	count;
 
 	i = 0;
 	count = 0;
-	while (str[i])
+	while (s[i])
 	{
-		while (str[i] && str[i] == c)
+		while (s[i] && s[i] == c)
 			i++;
-		if (str[i] && str[i] != c)
+		if (s[i] && s[i] != c)
 			count++;
-		while (str[i] && str[i] != c)
+		while (s[i] && s[i] != c)
 			i++;
 	}
 	return (count);
 }
 
-int	word_len(char *str, int *i, char c)
+int	word_len(char *s, int *i, char c)
 {
 	int	count;
 
 	count = 0;
-	while (str[*i] && str[*i] == c)
+	while (s[*i] && s[*i] == c)
 		(*i)++;
-	while (str[*i] && str[*i] != c)
+	while (s[*i] && s[*i] != c)
 	{
 		(*i)++;
 		count++;
@@ -46,18 +59,20 @@ int	word_len(char *str, int *i, char c)
 	return (count);
 }
 
-char	*get_word(char *str, int len, int *i, char c)
+char	*get_word(char *s, int len, int *i, char c)
 {
 	char	*word;
 	int		j;
 
 	j = 0;
 	word = malloc(sizeof(char) * (len + 1));
-	while (str[*i] && str[*i] == c)
+	if (word == NULL)
+		return (NULL);
+	while (s[*i] && s[*i] == c)
 		(*i)++;
-	while (str[*i] && str[*i] != c)
+	while (s[*i] && s[*i] != c)
 	{
-		word[j] = str[*i];
+		word[j] = s[*i];
 		(*i)++;
 		j++;
 	}
@@ -65,7 +80,7 @@ char	*get_word(char *str, int len, int *i, char c)
 	return (word);
 }
 
-char	**ft_split(char *str, char c)
+char	**ft_split(char *s, char c)
 {
 	int		i;
 	int		j;
@@ -75,15 +90,21 @@ char	**ft_split(char *str, char c)
 
 	i = 0;
 	j = 0;
-	count_str = str_count(str, c);
+	//rajouter condition si s null
+	count_str = str_count(s, c);
 	tab = malloc(sizeof(char *) * (count_str + 1));
 	if (tab == NULL)
 		return (NULL);
 	while (i < count_str)
 	{
-		len_word = word_len(str, &j, c);
+		len_word = word_len(s, &j, c);
 		j = j - len_word;
-		tab[i] = get_word(str, len_word, &j, c);
+		tab[i] = get_word(s, len_word, &j, c);
+		if (tab[i] == NULL)
+		{
+			free_all(&tab, i);
+			return (NULL);
+		}
 		i++;
 	}
 	tab[i] = NULL;
