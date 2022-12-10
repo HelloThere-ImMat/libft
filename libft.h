@@ -42,7 +42,7 @@ char			*ft_strchr(const char *s, int c);
 char			*ft_strdup(const char *s);
 size_t			ft_strlcat(char *dest, char *src, unsigned int size);
 size_t			ft_strlcpy(char *dest, char *src, unsigned int size);
-size_t			ft_strlen(const char *s);
+int				ft_strlen(const char *s);
 int				ft_strncmp(char *s1, char *s2, unsigned int n);
 char			*ft_strnstr(const char *big, const char *little, size_t len);
 char			*ft_strrchr(const char *s, int c);
