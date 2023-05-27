@@ -1,98 +1,75 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/10 11:28:07 by mdorr             #+#    #+#              #
-#    Updated: 2022/11/17 14:58:39 by mdorr            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+#############
+#### ENV ####
+#############
 
-SRCS	=	ft_atoi.c \
-		ft_bzero.c \
-		ft_calloc.c \
-		ft_isalnum.c \
-		ft_isalpha.c \
-		ft_isascii.c \
-		ft_isdigit.c \
-		ft_isprint.c \
-		ft_itoa.c \
-		ft_memchr.c \
-		ft_memcmp.c \
-		ft_memcpy.c \
-		ft_memmove.c \
-		ft_memset.c \
-		ft_putchar_fd.c \
-		ft_putendl_fd.c \
-		ft_putnbr_fd.c \
-		ft_putstr_fd.c \
-		ft_split.c \
-		ft_strchr.c \
-		ft_strdup.c \
-		ft_strjoin.c \
-		ft_strlcat.c \
-		ft_strlcpy.c \
-		ft_strlen.c \
-		ft_strmapi.c \
-		ft_strncmp.c \
-		ft_striteri.c \
-		ft_strnstr.c \
-		ft_strrchr.c \
-		ft_strtrim.c \
-		ft_substr.c \
-		ft_tolower.c \
-		ft_toupper.c \
+SHELL = /usr/bin/bash
 
+##############
+#### NAME ####
+##############
 
-NAME	=	libft.a
+NAME = libft.a
 
-OBJS	= 	${SRCS:.c=.o}
+##############
+#### SRCS ####
+##############
 
+PATH_SRCS += srcs/
+PATH_SRCS += srcs/conv/
+PATH_SRCS += srcs/ctype/
+PATH_SRCS += srcs/ft_printf/
+PATH_SRCS += srcs/get_mext_line/
+PATH_SRCS += srcs/list/
+PATH_SRCS += srcs/memory/
+PATH_SRCS += srcs/put/
+PATH_SRCS += srcs/strings/
 
-BONUS	=	ft_lstadd_back.c \
-		ft_lstadd_front.c \
-		ft_lstclear.c \
-		ft_lstdelone.c \
-		ft_lstiter.c \
-		ft_lstlast.c \
-		ft_lstmap.c \
-		ft_lstnew.c \
-		ft_lstsize.c \
+# conv
 
-BONUS_OBJS	= ${BONUS:.c=.o}
+SRCS += ft_atoi.c
+SRCS += ft_itoa.c
 
-CC	= 	gcc
+# ctype
 
+SRCS += ft_isalnum.c
+SRCS += ft_isalpha.c
+SRCS += ft_isascii.c
+SRCS += ft_isdigit.c
+SRCS += ft_islower.c
+SRCS += ft_isprint.c
+SRCS += ft_isupper.c
+SRCS += ft_tolower.c
+SRCS += ft_toupper.c
 
-CFLAGS	= 	-Wall -Wextra -Werror
+# ft_printf
 
+SRCS += ft_print_nbr.c
+SRCS += ft_print_str.c
+SRCS += ft_printf.c
 
-.c.o:	
+# get_next_line
 
-		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+SRCS += get_next_line.c
+SRCS += get_next_line_utils.c
 
+# list
 
-${NAME}:	${OBJS}
-		ar rcs ${NAME} ${OBJS}
+SRCS += ft_lstadd_back.c
+SRCS += ft_lstadd_front.c
+SRCS += ft_lstclear.c
+SRCS += ft_lstdelone.c
+SRCS += ft_lstiter.c
+SRCS += ft_lstlast.c
+SRCS += ft_lstmap.c
+SRCS += ft_lstnew.c
+SRCS += ft_lstsize.c
 
+# memory
 
-all:	${NAME}
-
-
-clean:	
-		rm -f ${OBJS} ${BONUS_OBJS}
-
-
-fclean:	clean
-		rm -f ${NAME}
-
-
-re:	fclean all
-
-bonus:	${OBJS} ${BONUS_OBJS}
-			ar rcs ${NAME} ${OBJS} ${BONUS_OBJS}
-
-
-.PHONY : 	all clean fclean re
+SRCS += ft_bzero.c
+SRCS += ft_calloc.c
+SRCS += ft_memchr.c
+SRCS += ft_memcmp.c
+SRCS += ft_memcpy.c
+SRCS += ft_memmove.c
+SRCS += ft_memset.c
