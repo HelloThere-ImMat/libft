@@ -1,51 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_str.c                                     :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 17:39:36 by mdorr             #+#    #+#             */
-/*   Updated: 2023/05/29 11:15:56 by mdorr            ###   ########.fr       */
+/*   Created: 2023/05/29 11:03:26 by mdorr             #+#    #+#             */
+/*   Updated: 2023/05/29 11:04:03 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+void	ft_swap(int *a, int *b)
 {
-	int	i;
+	int	temp;
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
-void	ft_print_char(char c, int *strlen)
-{
-	(*strlen)++;
-	write(1, &c, 1);
-}
-
-void	ft_print_str(char *s, int *strlen)
-{
-	int	i;
-	int	len;
-
-	i = 0;
-	if (s == NULL)
-	{
-		ft_print_str("(null)", strlen);
-		return ;
-	}
-	len = ft_strlen(s);
-	while (i < len)
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-	*strlen += len;
+	temp = 0;
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }

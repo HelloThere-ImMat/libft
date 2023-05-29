@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 13:26:53 by mdorr             #+#    #+#             */
-/*   Updated: 2023/05/27 18:22:50 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/05/29 11:46:58 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,24 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+typedef struct s_words
+{
+	char			*content;
+	struct s_words	*next;
+}		t_words;
+
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
 # endif
 
-typedef struct s_list
-{
-	char			*content;
-	struct s_list	*next;
-}				t_list;
-
 char	*get_next_line(int fd);
-int		read_and_stash(int fd, t_list **stash);
-int		found_newline(t_list *stash);
-void	add_to_lst(t_list **stash, char *buf, int counter);
-void	generate_line(t_list *stash, char **line);
-void	extract_line(t_list *stash, char **line);
-void	clean_stash(t_list **stash);
-t_list	*ft_lstlast(t_list *lst);
-void	free_stash(t_list *stash);
-size_t	ft_strlen(const char *str);
+int		read_and_stash(int fd, t_words **stash);
+int		found_newline(t_words *stash);
+void	add_to_lst(t_words **stash, char *buf, int counter);
+void	generate_line(t_words *stash, char **line);
+void	extract_line(t_words *stash, char **line);
+void	clean_stash(t_words **stash);
+t_words	*ft_lstlast_words(t_words *lst);
+void	free_stash(t_words *stash);
 
 #endif

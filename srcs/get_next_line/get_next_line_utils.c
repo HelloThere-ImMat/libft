@@ -6,19 +6,19 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 12:42:02 by mdorr             #+#    #+#             */
-/*   Updated: 2022/12/10 12:43:48 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/05/29 11:45:15 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "libft.h"
 
-void	add_to_lst(t_list **stash, char *buf, int counter)
+void	add_to_lst(t_words **stash, char *buf, int counter)
 {
-	t_list	*new_node;
-	t_list	*last_node;
+	t_words	*new_node;
+	t_words	*last_node;
 	int		i;
 
-	new_node = malloc(sizeof(t_list));
+	new_node = malloc(sizeof(t_words));
 	if (new_node == NULL)
 		return ;
 	new_node->content = malloc(sizeof(char) * counter + 1);
@@ -37,19 +37,19 @@ void	add_to_lst(t_list **stash, char *buf, int counter)
 		*stash = new_node;
 		return ;
 	}
-	last_node = ft_lstlast(*stash);
+	last_node = ft_lstlast_words(*stash);
 	last_node->next = new_node;
 }
 
-int	found_newline(t_list *stash)
+int	found_newline(t_words *stash)
 {
-	t_list	*current;
+	t_words	*current;
 	int		i;
 
 	i = 0;
 	if (stash == NULL)
 		return (0);
-	current = ft_lstlast(stash);
+	current = ft_lstlast_words(stash);
 	while (current->content[i])
 	{
 		if (current->content[i] == '\n')
@@ -59,10 +59,10 @@ int	found_newline(t_list *stash)
 	return (0);
 }
 
-void	free_stash(t_list *stash)
+void	free_stash(t_words *stash)
 {
-	t_list	*current;
-	t_list	*next;
+	t_words	*current;
+	t_words	*next;
 
 	current = stash;
 	while (current)
@@ -74,7 +74,7 @@ void	free_stash(t_list *stash)
 	}
 }
 
-t_list	*ft_lstlast(t_list *lst)
+t_words	*ft_lstlast_words(t_words *lst)
 {
 	while (lst != NULL && lst->next != NULL)
 		lst = lst->next;

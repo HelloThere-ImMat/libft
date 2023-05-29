@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:40:06 by mdorr             #+#    #+#             */
-/*   Updated: 2023/05/27 18:22:37 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/05/29 11:41:43 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ char			*ft_strchr(const char *s, int c);
 char			*ft_strdup(const char *s);
 size_t			ft_strlcat(char *dest, char *src, unsigned int size);
 size_t			ft_strlcpy(char *dest, char *src, unsigned int size);
-int				ft_strlen(const char *s);
+size_t			ft_strlen(const char *s);
 int				ft_strncmp(char *s1, char *s2, unsigned int n);
 char			*ft_strnstr(const char *big, const char *little, size_t len);
 char			*ft_strrchr(const char *s, int c);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
 
-//FONCTIONS SUPPLEMENTAIRES
+//FONCTIONS SUPPLEMENTAIRES 42
 
 char			*ft_itoa(int n);
 void			ft_putnbr_fd(int n, int fd);
@@ -78,5 +78,9 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
+
+// FONCTIONS SUPPPLEMENTAIRES MATHIAS
+
+void			ft_swap(int *a, int *b);
 
 #endif

@@ -6,26 +6,26 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 13:34:20 by mdorr             #+#    #+#             */
-/*   Updated: 2022/12/11 15:59:18 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/05/29 11:45:32 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line_bonus.h"
+#include "libft.h"
 
-void	clean_stash(t_list **stash)
+void	clean_stash(t_words **stash)
 {
-	t_list	*last;
-	t_list	*clean;
+	t_words	*last;
+	t_words	*clean;
 	int		i;
 	int		j;
-	int		len;
+	size_t	len;
 
 	i = 0;
-	clean = malloc(sizeof(t_list));
+	clean = malloc(sizeof(t_words));
 	if (stash == NULL || clean == NULL)
 		return ;
 	clean->next = NULL;
-	last = ft_lstlast(*stash);
+	last = ft_lstlast_words(*stash);
 	len = ft_strlen(last->content);
 	while (last->content[i] && last->content[i] != '\n')
 		i++;
@@ -40,7 +40,7 @@ void	clean_stash(t_list **stash)
 	*stash = clean;
 }
 
-void	extract_line(t_list *stash, char **line)
+void	extract_line(t_words *stash, char **line)
 {
 	int	i;
 	int	j;
@@ -67,7 +67,7 @@ void	extract_line(t_list *stash, char **line)
 	(*line)[j] = '\0';
 }
 
-void	generate_line(t_list *stash, char **line)
+void	generate_line(t_words *stash, char **line)
 {
 	int	i;
 	int	len;
@@ -91,7 +91,7 @@ void	generate_line(t_list *stash, char **line)
 	*line = malloc(sizeof(char) * (len + 1));
 }
 
-int	read_and_stash(int fd, t_list **stash)
+int	read_and_stash(int fd, t_words **stash)
 {
 	char	*buf;
 	int		counter;
@@ -118,7 +118,7 @@ int	read_and_stash(int fd, t_list **stash)
 
 char	*get_next_line(int fd)
 {
-	static t_list	*stash[4096];
+	static t_words	*stash[4096];
 	char			*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
