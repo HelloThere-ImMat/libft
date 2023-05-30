@@ -6,7 +6,7 @@
 /*   By: mdorr <mdorr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:40:06 by mdorr             #+#    #+#             */
-/*   Updated: 2023/05/29 11:41:43 by mdorr            ###   ########.fr       */
+/*   Updated: 2023/05/30 15:56:54 by mdorr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdint.h>
+# include <stdbool.h>
 
 # include "ft_printf.h"
 # include "get_next_line.h"
@@ -25,6 +26,9 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }		t_list;
+
+
+
 
 //LIBC
 

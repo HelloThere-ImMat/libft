@@ -43,6 +43,7 @@ SRCS += ft_toupper.c
 
 SRCS += ft_print_nbr.c
 SRCS += ft_print_str.c
+SRCS += ft_dprintf.c
 SRCS += ft_printf.c
 
 # get_next_line
@@ -52,6 +53,7 @@ SRCS += get_next_line_utils.c
 
 # list
 
+SRCS += ft_list_remove_if.c
 SRCS += ft_lstadd_back.c
 SRCS += ft_lstadd_front.c
 SRCS += ft_lstclear.c
